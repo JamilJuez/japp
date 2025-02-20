@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as XLSX from 'xlsx';
-import './Catalogo.css';
+import './catalogo.css';
 
 const Catalogo = () => {
   const [productos, setProductos] = useState([]);
