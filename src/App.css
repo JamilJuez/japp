@@ -1,0 +1,116 @@
+/* src/App.css */
+
+/* Diseño base para escritorios (pantallas grandes) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 1em; /* Usamos unidades relativas para mejor adaptación */
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Estilo para pantallas móviles (≤ 600px) */
+@media screen and (max-width: 600px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 1em; /* Usar padding relativo */
+  }
+
+  table, th, td {
+    display: block;
+    width: 100%;
+  }
+
+  th {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+
+/* Estilo para tablets (601px - 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  table {
+    font-size: 16px;
+  }
+
+  th, td {
+    padding: 1.2em;
+  }
+
+  td {
+    text-align: left;
+  }
+}
+
+/* Estilo para escritorios (≥ 1025px) */
+@media screen and (min-width: 1025px) {
+  table {
+    font-size: 18px;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  th, td {
+    padding: 1.5em;
+  }
+}
+
+/* Estilos generales para el botón de cerrar sesión */
+.logout-button {
+  position: absolute;
+  top: 10px; /* Posición vertical (ajustable según necesidad) */
+  right: 10px; /* Posición horizontal (ajustable si es necesario) */
+  padding: 0.5em 1em; /* Tamaño relativo */
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem; /* Fuente de tamaño relativo */
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Estilos para pantallas móviles (≤ 600px) */
+@media screen and (max-width: 600px) {
+  .logout-button {
+    font-size: 0.8rem; /* Reduce el tamaño del texto */
+    padding: 0.4em 0.8em; /* Ajusta el tamaño del padding */
+  }
+}
+
+/* Estilo para tablets (601px - 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .logout-button {
+    font-size: 0.9rem; /* Reducción moderada del tamaño */
+    padding: 0.45em 0.9em;
+  }
+}
+
+/* Estilo para escritorios (≥ 1025px) */
+@media screen and (min-width: 1025px) {
+  .logout-button {
+    font-size: 1rem; /* Tamaño normal para escritorios */
+    padding: 0.5em 1em; /* Tamaño predeterminado de padding */
+  }
+}
