@@ -31,7 +31,7 @@ const App = () => {
     if (users[usuario] && users[usuario] === clave) {
       setIsAuthenticated(true);
       localStorage.setItem("isAuthenticated", "true");  // Guardar el estado en localStorage
-      navigate("/catalogo");  // Redirigir al home si las credenciales son correctas
+      navigate("src/components/catalogo");  // Redirigir al home si las credenciales son correctas
     } else {
       alert("Usuario o clave incorrectos");
     }
