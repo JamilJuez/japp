@@ -24,7 +24,7 @@ const Login = ({ onLogin }) => {
   return (
     <div className="wrap">
       <div className="avatar">
-        <img src="/public/logo.png" alt="Avatar" />
+        <img src="/logo.png" alt="Logo" />
       </div>
       <form onSubmit={handleLogin}>
         <input
@@ -40,7 +40,7 @@ const Login = ({ onLogin }) => {
           placeholder="Password"
           required
         />
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit">Sign in</button>
       </form>
       <div className="message">{message}</div>
     </div>
