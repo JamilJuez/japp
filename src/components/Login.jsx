@@ -1,41 +1,48 @@
-import React, { useState } from "react";
-import "./Login.css";
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css"; // Asegúrate de que el archivo CSS esté correctamente configurado
 
 const Login = ({ onLogin }) => {
-  const [usuario, setUsuario] = useState("");
-  const [clave, setClave] = useState("");
+  const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+  const usernameRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  React.useEffect(() => {
+    usernameRef.current.focus();
+  }, []);
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    onLogin(usuario, clave);  // Llamada para manejar el login
+
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+
+    // Llama a la función onLogin desde App.jsx
+    onLogin(username, password);  // Si las credenciales son correctas, se manejará en App.jsx
   };
 
   return (
-    <div className="login-container">
-      <h2>Iniciar sesión</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Usuario</label>
-          <input
-            type="text"
-            value={usuario}
-            onChange={(e) => setUsuario(e.target.value)}
-            placeholder="Usuario"
-            required
-          />
-        </div>
-        <div>
-          <label>Clave</label>
-          <input
-            type="password"
-            value={clave}
-            onChange={(e) => setClave(e.target.value)}
-            placeholder="Clave"
-            required
-          />
-        </div>
-        <button type="submit">Entrar</button>
+    <div className="wrap">
+      <div className="avatar">
+        <img src="/src/assets/logo.png" alt="Avatar" />
+      </div>
+      <form onSubmit={handleLogin}>
+        <input
+          ref={usernameRef}
+          type="text"
+          name="username"
+          placeholder="Username"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <button type="submit">Iniciar sesión</button>
       </form>
+      <div className="message">{message}</div>
     </div>
   );
 };
