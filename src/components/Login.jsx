@@ -24,7 +24,7 @@ const Login = ({ onLogin }) => {
   return (
     <div className="wrap">
       <div className="avatar">
-        <img src="/src/assets/logo.png" alt="Avatar" />
+        <img src="/public/logo.png" alt="Avatar" />
       </div>
       <form onSubmit={handleLogin}>
         <input
