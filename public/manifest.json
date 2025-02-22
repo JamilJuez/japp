@@ -1,7 +1,7 @@
 {
-  "name": "Japp",
-  "short_name": "Japp",
-  "description": "Ctalogo",
+  "name": "Mi Aplicación",
+  "short_name": "App",
+  "description": "Una descripción de mi aplicación PWA",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
