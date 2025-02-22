@@ -1,13 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mi PWA</title>
+  
+  <!-- Vincula tu archivo de manifest -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Agrega tu favicon y otros recursos -->
+  <link rel="icon" href="/logo.png" />
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Importa el archivo de JavaScript generado por Vite -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
 </html>

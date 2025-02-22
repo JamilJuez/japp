@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom"; // Importamos el enrutador
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "./index.css";
 
@@ -13,8 +13,7 @@ root.render(
 
 // Registrar el Service Worker para PWA
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/service-worker.js")
+  navigator.serviceWorker.register("/sw.js")
     .then(() => console.log("Service Worker registrado"))
     .catch((error) => console.error("Error al registrar el Service Worker:", error));
 }
