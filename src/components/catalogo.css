@@ -10,15 +10,15 @@ body {
   overflow-x: hidden; /* Evita que aparezca la barra de desplazamiento horizontal */
 }
 
-
 /* Diseño de cuadrícula para los productos */
 .productos-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas para escritorios */
-  gap: 20px;
+  gap: 15px; /* Reducir el espacio entre los cuadros */
   margin-top: 20px;
   justify-items: center;
   width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo */
 }
 
 /* Estilos de cada tarjeta de producto */
@@ -112,7 +112,7 @@ body {
 /* Diseño responsivo para tabletas y móviles */
 @media (max-width: 1024px) {
   .productos-grid {
-    grid-template-columns: repeat(3, 1fr); /* 2 columnas para tabletas */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas para tabletas */
   }
 
   .producto-card {
@@ -126,7 +126,7 @@ body {
 
 @media (max-width: 600px) {
   .productos-grid {
-    grid-template-columns: repeat(2, 1fr); /* 1 columna para móviles */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para móviles */
   }
 
   .producto-card {
@@ -246,17 +246,17 @@ body {
 .modal-content {
   background-color: white;
   padding: 20px;
-  max-width: 600px;
-  max-height: 80%;
+  max-width: 90%; /* Ajustar el ancho del modal */
+  max-height: 90%; /* Limitar la altura */
   overflow-y: auto;
   text-align: center;
   border-radius: 10px;
 }
 
 .modal-img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  margin: 15px 0;
+  object-fit: contain; /* Evita que la imagen se deforme */
 }
 
 /* Estilo para el botón de cerrar */
