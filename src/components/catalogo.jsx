@@ -54,7 +54,7 @@ const Catalogo = () => {
       {/* Sello Beta V1 */}
       <div className="beta-sello">
   <span className="beta-v1">BETA V1</span>
-  <span className="desarrollo">App en desarrollo temprana</span>
+  <span className="desarrollo">Inventory updated 2/25</span>
 </div>
     
 
