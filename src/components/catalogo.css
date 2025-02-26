@@ -10,15 +10,31 @@ body {
   overflow-x: hidden; /* Evita que aparezca la barra de desplazamiento horizontal */
 }
 
+/* Contenedor del catálogo centrado */
+.catalogo-container {
+  padding: 80px 20px 20px; /* Espaciado superior ajustado */
+  width: 100%;
+  max-width: 1200px; /* Limitar el ancho máximo del catálogo */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  margin: 0 auto; /* Centrado horizontal */
+}
+
 /* Diseño de cuadrícula para los productos */
 .productos-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas para escritorios */
-  gap: 15px; /* Reducir el espacio entre los cuadros */
+  gap: 15px; /* Reducir espacio entre productos */
   margin-top: 20px;
   justify-items: center;
   width: 100%;
-  max-width: 1200px; /* Limitar el ancho máximo */
 }
 
 /* Estilos de cada tarjeta de producto */
@@ -109,35 +125,63 @@ body {
   font-weight: bold;
 }
 
-/* Diseño responsivo para tabletas y móviles */
+/* Modal: Ajuste de la imagen */
+.modal-img {
+  max-width: 100%;
+  max-height: 80vh; /* Asegurarse de que la imagen no se haga más grande que el 80% de la altura de la ventana */
+  object-fit: contain; /* Mantener la relación de aspecto y evitar deformaciones */
+  margin: 15px 0;
+}
+
+/* Estilo para el modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Estilo para el contenido del modal */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  background-color: #f39c12;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Media Query para tabletas y móviles */
 @media (max-width: 1024px) {
   .productos-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas para tabletas */
-  }
-
-  .producto-card {
-    height: auto; /* Ajustar altura de las tarjetas */
-  }
-
-  .producto-img {
-    height: 120px; /* Ajustar altura de las imágenes en tabletas */
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en tabletas */
   }
 }
 
 @media (max-width: 600px) {
   .productos-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas para móviles */
-  }
-
-  .producto-card {
-    height: auto; /* Ajustar altura de las tarjetas en móviles */
-  }
-
-  .producto-img {
-    height: 100px; /* Ajustar altura de las imágenes en móviles */
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
   }
 }
 
+/* Estilo para el buscador */
 .buscador {
   margin-top: 50px;
   padding: 10px 20px;
@@ -207,7 +251,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Media Query para pantallas más pequeñas (móviles) */
+/* Ajuste para pantallas más pequeñas (móviles) */
 @media (max-width: 600px) {
   .beta-sello {
     padding: 3px 10px; /* Menos padding para hacerlo más pequeño */
@@ -226,46 +270,4 @@ body {
   .catalogo-container {
     padding-top: 60px; /* Reducir el espacio superior */
   }
-}
-
-/* Estilo para el modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* Estilo para el contenido del modal */
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  max-width: 90%; /* Ajustar el ancho del modal */
-  max-height: 90%; /* Limitar la altura */
-  overflow-y: auto;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.modal-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* Evita que la imagen se deforme */
-}
-
-/* Estilo para el botón de cerrar */
-.modal-content button {
-  padding: 10px 20px;
-  background-color: #f39c12;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
 }
