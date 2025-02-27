@@ -53,7 +53,7 @@ const Catalogo = () => {
     <div className="catalogo-container">
       <div className="beta-sello">
         <span className="beta-v1">BETA V1</span>
-        <span className="desarrollo">Inventory updated 2/25</span>
+        <span className="desarrollo">Inventory updated 2/26</span>
       </div>
 
       <input
