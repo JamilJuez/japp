@@ -1,4 +1,4 @@
-const CACHE_NAME = "pwa-cache-v1";
+const CACHE_NAME = "pwa-cache-v2"; // Cambia el nombre para forzar una actualización
 const urlsToCache = [
   "/",
   "/index.html",
@@ -8,26 +8,31 @@ const urlsToCache = [
   "/src/App.jsx"
 ];
 
-// Instalación del Service Worker
+// Instalación del Service Worker y almacenamiento en caché de archivos
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(urlsToCache);
     })
   );
-  self.skipWaiting();
+  self.skipWaiting(); // Activa inmediatamente el nuevo SW
 });
 
-// Interceptar las solicitudes y servir desde caché si no hay internet
+// Interceptar las solicitudes y actualizar la caché automáticamente
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((response) => {
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, response.clone()); // Guarda la nueva versión en caché
+          return response;
+        });
+      })
+      .catch(() => caches.match(event.request)) // Si falla la red, usa la caché
   );
 });
 
-// Activación del Service Worker para limpiar caches antiguos
+// Activación del Service Worker y limpieza de cachés antiguas
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -40,5 +45,11 @@ self.addEventListener("activate", (event) => {
       );
     })
   );
-  self.clients.claim();
+
+  self.clients.claim(); // Toma control de inmediato
+
+  // Forzar la recarga de los clientes activos
+  self.clients.matchAll().then((clients) => {
+    clients.forEach((client) => client.navigate(client.url));
+  });
 });
