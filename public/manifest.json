@@ -1,7 +1,7 @@
 {
-  "name": "Mi Aplicación",
+  "name": "Jay App",
   "short_name": "App",
-  "description": "Una descripción de mi aplicación PWA",
+  "description": "Catalogo y mas",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
