@@ -181,10 +181,10 @@ body {
   }
 }
 
-/* Estilo para el buscador */
+/* Estilos para el buscador */
 .buscador {
   margin-top: 50px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: 1px solid #ddd;
   width: 80%;
@@ -192,18 +192,26 @@ body {
   font-size: 1em;
   margin-bottom: 20px;
   transition: all 0.3s ease;
+  color: #444; /* Color del texto por defecto */
 }
 
+/* Efecto al hacer foco en el buscador */
 .buscador:focus {
-  border-color: #007bff;
+  border-color: #ffffff; /* Color azul cuando se enfoca */
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra sutil */
+  color: #ffffff; /* Cambiar el color del texto a azul oscuro */
+  caret-color: #003366; /* El cursor parpadeante también será azul oscuro */
 }
 
+/* Placeholder color */
 .buscador::placeholder {
   color: #aaa;
 }
 
+.buscador:focus::placeholder {
+  color: transparent; /* Hace que el placeholder desaparezca cuando el campo tiene foco */
+}
 /* Estilos para el sello Beta */
 .beta-sello {
   position: fixed;
@@ -251,23 +259,72 @@ body {
   box-sizing: border-box;
 }
 
-/* Ajuste para pantallas más pequeñas (móviles) */
-@media (max-width: 600px) {
-  .beta-sello {
-    padding: 3px 10px; /* Menos padding para hacerlo más pequeño */
-    font-size: 1em; /* Tamaño de texto más pequeño */
-    border-radius: 10px; /* Borde más pequeño */
-  }
+/* Contenedor de filtros con el botón de New Items alineado a la derecha */
+.categoria-filtro-wrapper {
+  display: flex;
+  justify-content: center; /* Alineación centrada para los botones */
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px; /* Separación entre los botones */
+  width: 100%;
+}
 
-  .beta-v1 {
-    font-size: 1em; /* Hacer el texto "BETA V1" más pequeño */
-  }
+/* Estilo moderno para el botón de categoría */
+.categoria-filtro {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #4CAF50;
+  border: 2px solid #4CAF50;
+  border-radius: 50px;  /* Bordes redondeados */
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transición suave */
+  text-align: center;
+  width: 150px; /* Ancho reducido */
+}
 
-  .desarrollo {
-    font-size: 0.7em; /* Reducir aún más el tamaño del texto adicional */
-  }
+.categoria-filtro:hover {
+  background-color: #45a049;
+  border-color: #45a049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
 
-  .catalogo-container {
-    padding-top: 60px; /* Reducir el espacio superior */
-  }
+.categoria-filtro:focus {
+  box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra al enfocarse */
+}
+
+/* Estilo para el botón New Items */
+.producto-nuevo-btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background-color: #FF4081; /* Color vibrante */
+  border: none;
+  border-radius: 25px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.producto-nuevo-btn:hover {
+  background-color: #f50057; /* Color más oscuro al hacer hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al hacer hover */
+}
+
+.producto-nuevo-btn:focus {
+  box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra al enfocarse */
+}
+
+/* Añadir un poco de espacio entre el filtro de categoría y el botón New Items */
+.categoria-filtro-wrapper {
+  margin-bottom: 20px;
+}
+
+/* Ajuste para que el buscador quede justo debajo de la barra de categorías */
+.buscador {
+  margin-top: 10px;
 }

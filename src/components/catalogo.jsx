@@ -7,6 +7,8 @@ const Catalogo = () => {
   const [busqueda, setBusqueda] = useState('');
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [modalAbierto, setModalAbierto] = useState(false);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(''); // Filtro por categoría
+  const [mostrarNuevos, setMostrarNuevos] = useState(false); // Filtro de productos nuevos
 
   // Palabras exactas a excluir
   const palabrasExcluir = ['dux', 'noel', 'ducales'];
@@ -28,16 +30,26 @@ const Catalogo = () => {
     cargarCatalogo();
   }, []);
 
-  // Filtrado de productos
-  const productosFiltrados = productos.filter((producto) =>
-    Object.values(producto).some((valor) => {
+  // Obtener categorías únicas
+  const categorias = [...new Set(productos.map(producto => producto['Categoria']))];
+
+  // Filtrado de productos por búsqueda, categoría y nuevos
+  const productosFiltrados = productos.filter((producto) => {
+    const coincideBusqueda = Object.values(producto).some((valor) => {
       const valorStr = valor.toString().toLowerCase();
       return (
         valorStr.includes(busqueda.toLowerCase()) &&
         palabrasExcluir.every((palabra) => !new RegExp(`\\b${palabra}\\b`, 'i').test(valorStr))
       );
-    })
-  );
+    });
+
+    const coincideCategoria = categoriaSeleccionada ? producto['Categoria'] === categoriaSeleccionada : true;
+
+    // Filtrar por productos nuevos si se activa el filtro
+    const esNuevo = mostrarNuevos ? producto['Estado'] === 'New' : true;
+
+    return coincideBusqueda && coincideCategoria && esNuevo;
+  });
 
   const abrirModal = (producto) => {
     setProductoSeleccionado(producto);
@@ -53,9 +65,35 @@ const Catalogo = () => {
     <div className="catalogo-container">
       <div className="beta-sello">
         <span className="beta-v1">BETA V1</span>
-        <span className="desarrollo">Inventory updated 2/27</span>
+        <span className="desarrollo">Inventory updated 2/28</span>
       </div>
 
+      {/* Contenedor de filtros con el botón de New Items */}
+      <div className="categoria-filtro-wrapper">
+        {/* Filtro de categoría */}
+        <select
+          value={categoriaSeleccionada}
+          onChange={(e) => setCategoriaSeleccionada(e.target.value)}
+          className="categoria-filtro"
+        >
+          <option value="">Categorías</option>
+          {categorias.map((categoria, index) => (
+            <option key={index} value={categoria}>
+              {categoria}
+            </option>
+          ))}
+        </select>
+
+        {/* Botón para mostrar solo productos nuevos */}
+        <button
+          onClick={() => setMostrarNuevos(!mostrarNuevos)}
+          className="producto-nuevo-btn"
+        >
+          {mostrarNuevos ? 'Todos' : 'New Items!'}
+        </button>
+      </div>
+
+      {/* Campo de búsqueda */}
       <input
         type="text"
         placeholder="Buscar productos..."
