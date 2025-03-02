@@ -290,11 +290,11 @@ body {
 /* Estilo moderno para el botón de categoría */
 .categoria-filtro {
   padding: 12px 20px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  color: #fff;
-  background-color: #4CAF50;
-  border: 2px solid #4CAF50;
+  color: #ffffff;
+  background-color: #3072ff;
+  border: 2px solid #8894ff;
   border-radius: 50px;  /* Bordes redondeados */
   outline: none;
   cursor: pointer;
@@ -304,8 +304,8 @@ body {
 }
 
 .categoria-filtro:hover {
-  background-color: #45a049;
-  border-color: #45a049;
+  background-color: #ff6d6d;
+  border-color: #be0e17;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
@@ -355,7 +355,7 @@ body {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-right: 10px; /* Espacio entre el botón y el filtro de categorías */
+  margin-right: -12px; /* Distancia ajustada entre el botón de la casita y el de categoría */
 }
 
 .categoria-home-btn img {
@@ -366,10 +366,20 @@ body {
 
 .categoria-home-btn:hover {
   background-color: transparent; /* Mantener el fondo transparente en hover */
-  box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra cuando pasa el mouse */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Sombra cuando pasa el mouse */
 }
 
 .categoria-home-btn:focus {
   outline: none;
   box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra al enfocarse */
+}
+
+/* Contenedor de filtros con el botón de New Items alineado a la derecha */
+.categoria-filtro-wrapper {
+  display: flex;
+  justify-content: center; /* Alineación centrada para los botones */
+  align-items: center;
+  margin-bottom: 1px;
+  gap: 8px; /* Separación entre los botones, ajustado para mantener consistencia */
+  width: 100%;
 }
