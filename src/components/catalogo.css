@@ -383,3 +383,26 @@ body {
   gap: 8px; /* Separación entre los botones, ajustado para mantener consistencia */
   width: 100%;
 }
+.btn-subir {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* Cambia left: 20px por right: 20px */
+  background-color: #ff6d6d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-subir:hover {
+  background-color: #be0e17;
+}
+
+/* Hacer visible el botón cuando está activo */
+.btn-subir {
+  display: block;
+}

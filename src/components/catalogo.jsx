@@ -7,10 +7,10 @@ const Catalogo = () => {
   const [busqueda, setBusqueda] = useState('');
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [modalAbierto, setModalAbierto] = useState(false);
-  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState(''); // Filtro por categoría
-  const [mostrarNuevos, setMostrarNuevos] = useState(false); // Filtro de productos nuevos
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
+  const [mostrarNuevos, setMostrarNuevos] = useState(false);
+  const [mostrarBotonSubir, setMostrarBotonSubir] = useState(false); // Estado para el botón de subir
 
-  // Palabras exactas a excluir
   const palabrasExcluir = ['dux', 'noel', 'ducales'];
 
   useEffect(() => {
@@ -28,12 +28,18 @@ const Catalogo = () => {
     };
 
     cargarCatalogo();
+
+    // Detectar el scroll para mostrar el botón de subir
+    const manejarScroll = () => {
+      setMostrarBotonSubir(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', manejarScroll);
+    return () => window.removeEventListener('scroll', manejarScroll);
   }, []);
 
-  // Obtener categorías únicas
   const categorias = [...new Set(productos.map(producto => producto['Categoria']))];
 
-  // Filtrado de productos por búsqueda, categoría y nuevos
   const productosFiltrados = productos.filter((producto) => {
     const coincideBusqueda = Object.values(producto).some((valor) => {
       const valorStr = valor.toString().toLowerCase();
@@ -44,8 +50,6 @@ const Catalogo = () => {
     });
 
     const coincideCategoria = categoriaSeleccionada ? producto['Categoria'] === categoriaSeleccionada : true;
-
-    // Filtrar por productos nuevos si se activa el filtro
     const esNuevo = mostrarNuevos ? producto['Estado'] === 'New' : true;
 
     return coincideBusqueda && coincideCategoria && esNuevo;
@@ -61,9 +65,12 @@ const Catalogo = () => {
     setModalAbierto(false);
   };
 
-  // Función para resetear la categoría y ver todos los productos
   const resetCategoria = () => {
     setCategoriaSeleccionada('');
+  };
+
+  const subirArriba = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -73,14 +80,11 @@ const Catalogo = () => {
         <span className="desarrollo">Inventory updated 2/28</span>
       </div>
 
-      {/* Contenedor de filtros con el botón de New Items */}
       <div className="categoria-filtro-wrapper">
-        {/* Botón de "home" (casita) para resetear la categoría */}
         <button onClick={resetCategoria} className="categoria-home-btn">
           <img src="/images/casita-icon.png" alt="Volver a todos" className="casita-icon" />
         </button>
 
-        {/* Filtro de categoría */}
         <select
           value={categoriaSeleccionada}
           onChange={(e) => setCategoriaSeleccionada(e.target.value)}
@@ -94,7 +98,6 @@ const Catalogo = () => {
           ))}
         </select>
 
-        {/* Botón para mostrar solo productos nuevos */}
         <button
           onClick={() => setMostrarNuevos(!mostrarNuevos)}
           className="producto-nuevo-btn"
@@ -103,7 +106,6 @@ const Catalogo = () => {
         </button>
       </div>
 
-      {/* Campo de búsqueda */}
       <input
         type="text"
         placeholder="Buscar productos..."
@@ -141,6 +143,13 @@ const Catalogo = () => {
             <button onClick={cerrarModal}>Cerrar</button>
           </div>
         </div>
+      )}
+
+      {/* Botón flotante para subir arriba */}
+      {mostrarBotonSubir && (
+        <button onClick={subirArriba} className="btn-subir">
+          ⬆
+        </button>
       )}
     </div>
   );
