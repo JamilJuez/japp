@@ -9,7 +9,7 @@ const Catalogo = () => {
   const [modalAbierto, setModalAbierto] = useState(false);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
   const [mostrarNuevos, setMostrarNuevos] = useState(false);
-  const [mostrarBotonSubir, setMostrarBotonSubir] = useState(false); // Estado para el botón de subir
+  const [mostrarBotonSubir, setMostrarBotonSubir] = useState(false);
 
   const palabrasExcluir = ['dux', 'noel', 'ducales'];
 
@@ -69,50 +69,45 @@ const Catalogo = () => {
     setCategoriaSeleccionada('');
   };
 
-  const subirArriba = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <div className="catalogo-container">
-      <div className="beta-sello">
-        <span className="beta-v1">BETA V1</span>
-        <span className="desarrollo">Inventory updated 2/28</span>
+      <div className="franja-superior">
+        <div className="beta-sello">
+          <span className="beta-v1">BETA V1</span>
+          <span className="desarrollo">Inventory updated 2/28</span>
+        </div>
+
+        <div className="categoria-filtro-wrapper">
+          <button onClick={resetCategoria} className="categoria-home-btn">
+            <img src="/images/casita-icon.png" alt="Volver a todos" className="casita-icon" />
+          </button>
+
+          <select
+            value={categoriaSeleccionada}
+            onChange={(e) => setCategoriaSeleccionada(e.target.value)}
+            className="categoria-filtro"
+          >
+            <option value="">Categorías</option>
+            {categorias.map((categoria, index) => (
+              <option key={index} value={categoria}>
+                {categoria}
+              </option>
+            ))}
+          </select>
+
+          <button onClick={() => setMostrarNuevos(!mostrarNuevos)} className="producto-nuevo-btn">
+            {mostrarNuevos ? 'Todos' : 'New Items!'}
+          </button>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Buscar productos..."
+          value={busqueda}
+          onChange={(e) => setBusqueda(e.target.value)}
+          className="buscador"
+        />
       </div>
-
-      <div className="categoria-filtro-wrapper">
-        <button onClick={resetCategoria} className="categoria-home-btn">
-          <img src="/images/casita-icon.png" alt="Volver a todos" className="casita-icon" />
-        </button>
-
-        <select
-          value={categoriaSeleccionada}
-          onChange={(e) => setCategoriaSeleccionada(e.target.value)}
-          className="categoria-filtro"
-        >
-          <option value="">Categorías</option>
-          {categorias.map((categoria, index) => (
-            <option key={index} value={categoria}>
-              {categoria}
-            </option>
-          ))}
-        </select>
-
-        <button
-          onClick={() => setMostrarNuevos(!mostrarNuevos)}
-          className="producto-nuevo-btn"
-        >
-          {mostrarNuevos ? 'Todos' : 'New Items!'}
-        </button>
-      </div>
-
-      <input
-        type="text"
-        placeholder="Buscar productos..."
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        className="buscador"
-      />
 
       <div className="productos-grid">
         {productosFiltrados.length > 0 ? (
@@ -145,12 +140,10 @@ const Catalogo = () => {
         </div>
       )}
 
-      {/* Botón flotante para subir arriba */}
       {mostrarBotonSubir && (
-      <button className="btn-subir" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-      <img src="/images/flecha-arriba.png" alt="Subir" className="icono-subir" />
-    </button>
-    
+        <button className="btn-subir" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img src="/images/flecha-arriba.png" alt="Subir" className="icono-subir" />
+        </button>
       )}
     </div>
   );

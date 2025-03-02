@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   min-height: 100vh;
-  background-color: #2a2c83;
+  background-color: #ff5454;
   overflow-x: hidden; /* Evita que aparezca la barra de desplazamiento horizontal */
 }
 
@@ -414,3 +414,4 @@ body {
   height: auto;
   display: block;
 }
+
