@@ -61,6 +61,11 @@ const Catalogo = () => {
     setModalAbierto(false);
   };
 
+  // Función para resetear la categoría y ver todos los productos
+  const resetCategoria = () => {
+    setCategoriaSeleccionada('');
+  };
+
   return (
     <div className="catalogo-container">
       <div className="beta-sello">
@@ -70,6 +75,11 @@ const Catalogo = () => {
 
       {/* Contenedor de filtros con el botón de New Items */}
       <div className="categoria-filtro-wrapper">
+        {/* Botón de "home" (casita) para resetear la categoría */}
+        <button onClick={resetCategoria} className="categoria-home-btn">
+          <img src="/images/casita-icon.png" alt="Volver a todos" className="casita-icon" />
+        </button>
+
         {/* Filtro de categoría */}
         <select
           value={categoriaSeleccionada}

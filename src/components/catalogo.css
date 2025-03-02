@@ -346,3 +346,30 @@ body {
 .buscador {
   margin-top: 10px;
 }
+
+/* Estilo para el botón con la imagen de la casita */
+.categoria-home-btn {
+  background-color: transparent; /* Fondo transparente */
+  border: none;
+  padding: 5px;  /* Tamaño más pequeño del botón */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px; /* Espacio entre el botón y el filtro de categorías */
+}
+
+.categoria-home-btn img {
+  width: 50px; /* Tamaño pequeño para la imagen de la casita */
+  height: 50px;
+  object-fit: cover;
+}
+
+.categoria-home-btn:hover {
+  background-color: transparent; /* Mantener el fondo transparente en hover */
+  box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra cuando pasa el mouse */
+}
+
+.categoria-home-btn:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra al enfocarse */
+}
