@@ -383,26 +383,34 @@ body {
   gap: 8px; /* Separación entre los botones, ajustado para mantener consistencia */
   width: 100%;
 }
+
 .btn-subir {
   position: fixed;
   bottom: 20px;
-  right: 20px; /* Cambia left: 20px por right: 20px */
-  background-color: #ff6d6d;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 20px;
-  border-radius: 50%;
+  right: 20px;
+  background: none !important; /* Elimina el fondo */
+  border: none !important; /* Elimina el borde */
+  padding: 0;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  z-index: 1000;
+  width: 50px; /* Ajusta el tamaño al de la imagen */
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.btn-subir:hover {
-  background-color: #be0e17;
+.btn-subir::before {
+  content: none !important; /* Previene contenido extra */
 }
 
-/* Hacer visible el botón cuando está activo */
-.btn-subir {
+.btn-subir:focus {
+  outline: none !important; /* Evita el contorno azul */
+  box-shadow: none !important;
+}
+
+.btn-subir img {
+  width: 100%;
+  height: auto;
   display: block;
 }

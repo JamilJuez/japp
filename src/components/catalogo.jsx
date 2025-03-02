@@ -147,9 +147,10 @@ const Catalogo = () => {
 
       {/* Botón flotante para subir arriba */}
       {mostrarBotonSubir && (
-        <button onClick={subirArriba} className="btn-subir">
-          ⬆
-        </button>
+      <button className="btn-subir" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <img src="/images/flecha-arriba.png" alt="Subir" className="icono-subir" />
+    </button>
+    
       )}
     </div>
   );
