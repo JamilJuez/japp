@@ -172,10 +172,29 @@ body {
 @media (max-width: 1024px) {
   .productos-grid {
     grid-template-columns: repeat(3, 1fr); /* 3 columnas en tabletas */
+    
   }
 }
 
 @media (max-width: 600px) {
+  .beta-sello {
+    padding: 3px 10px; /* Menos padding para hacerlo más pequeño */
+    font-size: 1em; /* Tamaño de texto más pequeño */
+    border-radius: 10px; /* Borde más pequeño */
+  }
+
+  .beta-v1 {
+    font-size: 0em; /* Hacer el texto "BETA V1" más pequeño */
+  }
+
+  .desarrollo {
+    font-size: 0.7em; /* Reducir aún más el tamaño del texto adicional */
+  }
+
+  .catalogo-container {
+    padding-top: 60px; /* Reducir el espacio superior */
+  }
+
   .productos-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
   }
@@ -242,7 +261,6 @@ body {
   margin-top: 3px; /* Espacio reducido entre el texto y BETA V1 */
   font-weight: normal;
 }
-
 /* Ajuste para evitar que el sello se sobreponga al contenido */
 .catalogo-container {
   padding: 80px 20px 20px; /* Aumentamos el padding-top para dejar espacio para el sello */
