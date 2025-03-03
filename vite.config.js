@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Mi Catálogo",
+        name: "Catalogo Jay App",
         short_name: "Catálogo",
         description: "Catálogo de productos Goya",
         start_url: "/",
@@ -17,12 +17,12 @@ export default defineConfig({
         theme_color: "#000000",
         icons: [
           {
-            src: "/icon-192x192.png",
+            src: "/logonb.png",
             sizes: "192x192",
             type: "image/png",
           },
           {
-            src: "/icon-512x512.png",
+            src: "/logonb.png",
             sizes: "512x512",
             type: "image/png",
           },
