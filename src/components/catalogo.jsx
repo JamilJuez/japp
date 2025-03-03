@@ -9,6 +9,7 @@ const Catalogo = () => {
   const [modalAbierto, setModalAbierto] = useState(false);
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('');
   const [mostrarNuevos, setMostrarNuevos] = useState(false);
+  const [mostrarConPrecio, setMostrarConPrecio] = useState(false);
   const [mostrarBotonSubir, setMostrarBotonSubir] = useState(false);
 
   const palabrasExcluir = ['dux', 'noel', 'ducales'];
@@ -29,7 +30,6 @@ const Catalogo = () => {
 
     cargarCatalogo();
 
-    // Detectar el scroll para mostrar el botón de subir
     const manejarScroll = () => {
       setMostrarBotonSubir(window.scrollY > 300);
     };
@@ -51,8 +51,9 @@ const Catalogo = () => {
 
     const coincideCategoria = categoriaSeleccionada ? producto['Categoria'] === categoriaSeleccionada : true;
     const esNuevo = mostrarNuevos ? producto['Estado'] === 'New' : true;
+    const tienePrecio = mostrarConPrecio ? producto['Precio'] && producto['Precio'] > 0 : true;
 
-    return coincideBusqueda && coincideCategoria && esNuevo;
+    return coincideBusqueda && coincideCategoria && esNuevo && tienePrecio;
   });
 
   const abrirModal = (producto) => {
@@ -79,7 +80,7 @@ const Catalogo = () => {
 
         <div className="categoria-filtro-wrapper">
           <button onClick={resetCategoria} className="categoria-home-btn">
-            <img src="/images/casita-icon.png" alt="Volver a todos" className="casita-icon" />
+            <img src="/images/casita-icon.webp" alt="Volver a todos" className="casita-icon" />
           </button>
 
           <select
@@ -98,6 +99,10 @@ const Catalogo = () => {
           <button onClick={() => setMostrarNuevos(!mostrarNuevos)} className="producto-nuevo-btn">
             {mostrarNuevos ? 'Todos' : 'New Items!'}
           </button>
+
+          <button onClick={() => setMostrarConPrecio(!mostrarConPrecio)} className="producto-precio-btn">
+            {mostrarConPrecio ? 'Catalogo Completo' : 'Price List 2/16'}
+          </button>
         </div>
 
         <input
@@ -107,7 +112,16 @@ const Catalogo = () => {
           onChange={(e) => setBusqueda(e.target.value)}
           className="buscador"
         />
-      </div>
+      </div>   
+       
+        {mostrarConPrecio && (
+           <div className="precio-lista-container">
+           <p className="precio-lista-texto">Productos en la lista de precio de Febrero 16, 2025</p>
+           <p className="precio-lista-subtexto">Algunos precios pueden subir o bajar, verificar precio en el portal</p>
+         </div>
+          
+          
+        )}
 
       <div className="productos-grid">
         {productosFiltrados.length > 0 ? (
@@ -119,6 +133,7 @@ const Catalogo = () => {
               <h3>{producto['Nombre']}</h3>
               <p className="size">{producto['Size']}</p>
               <p>Units: {producto['Unidades']}</p>
+              {mostrarConPrecio && producto['Precio'] > 0 && <p><strong>Precio:</strong> ${producto['Precio']}</p>}
             </div>
           ))
         ) : (
@@ -135,6 +150,7 @@ const Catalogo = () => {
             <p><strong>Tamaño:</strong> {productoSeleccionado['Size']}</p>
             <p><strong>Unidades:</strong> {productoSeleccionado['Unidades']}</p>
             <p><strong>Disponible:</strong> {productoSeleccionado['Disponible']}</p>
+            {productoSeleccionado['Precio'] > 0 && <p><strong>Precio:</strong> ${productoSeleccionado['Precio']}</p>}
             <button onClick={cerrarModal}>Cerrar</button>
           </div>
         </div>
@@ -142,7 +158,7 @@ const Catalogo = () => {
 
       {mostrarBotonSubir && (
         <button className="btn-subir" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <img src="/images/flecha-arriba.png" alt="Subir" className="icono-subir" />
+          <img src="/images/flecha-arriba.webp" alt="Subir" className="icono-subir" />
         </button>
       )}
     </div>

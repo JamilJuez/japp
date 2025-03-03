@@ -354,7 +354,7 @@ body {
   padding: 5px;  /* Tamaño más pequeño del botón */
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
   margin-right: -12px; /* Distancia ajustada entre el botón de la casita y el de categoría */
 }
 
@@ -366,12 +366,12 @@ body {
 
 .categoria-home-btn:hover {
   background-color: transparent; /* Mantener el fondo transparente en hover */
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); /* Sombra cuando pasa el mouse */
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.5); /* Sombra cuando pasa el mouse */
 }
 
 .categoria-home-btn:focus {
   outline: none;
-  box-shadow: 0 0 8px rgba(72, 133, 255, 0.5); /* Sombra al enfocarse */
+  box-shadow: 0 0 0px rgba(72, 133, 255, 0.5); /* Sombra al enfocarse */
 }
 
 /* Contenedor de filtros con el botón de New Items alineado a la derecha */
@@ -415,3 +415,19 @@ body {
   display: block;
 }
 
+.precio-lista-container {
+  text-align: center;
+  margin-top: -30px;
+}
+
+.precio-lista-texto {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.precio-lista-subtexto {
+  margin-top: -30px;
+  font-size: 15px;
+  color: #cfcfcf;
+}
