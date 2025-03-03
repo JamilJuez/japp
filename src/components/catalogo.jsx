@@ -88,7 +88,7 @@ const Catalogo = () => {
             onChange={(e) => setCategoriaSeleccionada(e.target.value)}
             className="categoria-filtro"
           >
-            <option value="">Categorías</option>
+            <option value="">All</option>
             {categorias.map((categoria, index) => (
               <option key={index} value={categoria}>
                 {categoria}
@@ -96,13 +96,15 @@ const Catalogo = () => {
             ))}
           </select>
 
+          <button onClick={() => setMostrarConPrecio(!mostrarConPrecio)} className="price-list-btn">
+            {mostrarConPrecio ? 'Catálogo Completo' : 'Price List 2/16'}
+          </button>
+
           <button onClick={() => setMostrarNuevos(!mostrarNuevos)} className="producto-nuevo-btn">
             {mostrarNuevos ? 'Todos' : 'New Items!'}
           </button>
 
-          <button onClick={() => setMostrarConPrecio(!mostrarConPrecio)} className="producto-precio-btn">
-            {mostrarConPrecio ? 'Catalogo Completo' : 'Price List 2/16'}
-          </button>
+          
         </div>
 
         <input
@@ -112,16 +114,14 @@ const Catalogo = () => {
           onChange={(e) => setBusqueda(e.target.value)}
           className="buscador"
         />
-      </div>   
-       
-        {mostrarConPrecio && (
-           <div className="precio-lista-container">
-           <p className="precio-lista-texto">Productos en la lista de precio de Febrero 16, 2025</p>
-           <p className="precio-lista-subtexto">Algunos precios pueden subir o bajar, verificar precio en el portal</p>
-         </div>
-          
-          
-        )}
+      </div>
+
+      {mostrarConPrecio && (
+        <div className="precio-lista-container">
+          <p className="precio-lista-texto">PRODUCTS ON PRICE LIST (FEB/16)</p>
+          <p className="precio-lista-subtexto">Some prices might increase or decrease, verify price in portal</p>
+        </div>
+      )}
 
       <div className="productos-grid">
         {productosFiltrados.length > 0 ? (

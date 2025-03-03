@@ -198,6 +198,14 @@ body {
   .productos-grid {
     grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
   }
+  .price-list-btn {
+    width: 100%; /* Ocupa todo el ancho en teléfonos */
+    font-size: 14px; /* Reduce un poco el tamaño de fuente */
+    padding: 12px; /* Ajusta el padding */
+    max-width: 90%; /* Evita que sea demasiado grande */
+    display: block;
+    margin: 10px auto; /* Centra el botón */
+  }
 }
 
 /* Estilos para el buscador */
@@ -293,7 +301,7 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: #ffffff;
-  background-color: #3072ff;
+  background-color:  #004da0;
   border: 2px solid #8894ff;
   border-radius: 50px;  /* Bordes redondeados */
   outline: none;
@@ -316,6 +324,7 @@ body {
 /* Estilo para el botón New Items */
 .producto-nuevo-btn {
   padding: 12px 20px;
+  margin-left: 10px;
   font-size: 16px;
   font-weight: 600;
   color: #fff;
@@ -430,4 +439,34 @@ body {
   margin-top: -30px;
   font-size: 15px;
   color: #cfcfcf;
+}
+
+.price-list-btn {
+  background-color: #004da0; /* Azul vibrante */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+   transition: background 0.3s ease-in-out;
+  margin-left: 10px;
+}
+
+.price-list-btn:hover {
+  background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+  transform: scale(1.05);
+}
+
+.price-list-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .price-list-btn {
+    font-size: 12px;
+    padding: 8px 14px;
+    border-radius: 6px;
+  }
 }
