@@ -75,7 +75,11 @@ const Catalogo = () => {
       <div className="franja-superior">
         <div className="beta-sello">
           <span className="beta-v1">BETA V1</span>
+<<<<<<< HEAD
           <span className="desarrollo">Inventory updated 03/06</span>
+=======
+          <span className="desarrollo">Inventory updated 03/05</span>
+>>>>>>> 0ea4b85f41cab6f44e79860a41e0334295b9bcc8
         </div>
 
         <div className="categoria-filtro-wrapper">
