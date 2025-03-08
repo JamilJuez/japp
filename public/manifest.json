@@ -1,6 +1,6 @@
 {
   "name": "Jay App",
-  "short_name": "App",
+  "short_name": "JayApp",
   "description": "Catalogo y mas",
   "start_url": "/",
   "display": "standalone",
