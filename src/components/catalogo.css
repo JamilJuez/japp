@@ -176,6 +176,38 @@ body {
   }
 }
 
+@media (max-width: 480px) {
+  .beta-sello {
+    padding: 3px 10px; /* Menos padding para hacerlo más pequeño */
+    font-size: 1em; /* Tamaño de texto más pequeño */
+    border-radius: 10px; /* Borde más pequeño */
+  }
+
+  .beta-v1 {
+    font-size: 0em; /* Hacer el texto "BETA V1" más pequeño */
+  }
+
+  .desarrollo {
+    font-size: 0.7em; /* Reducir aún más el tamaño del texto adicional */
+  }
+
+  .catalogo-container {
+    padding-top: 60px; /* Reducir el espacio superior */
+  }
+
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+  }
+  .price-list-btn {
+    width: 100%; /* Ocupa todo el ancho en teléfonos */
+    font-size: 14px; /* Reduce un poco el tamaño de fuente */
+    padding: 12px; /* Ajusta el padding */
+    max-width: 90%; /* Evita que sea demasiado grande */
+    display: block;
+    margin: 10px auto; /* Centra el botón */
+  } 
+}
+
 @media (max-width: 600px) {
   .beta-sello {
     padding: 3px 10px; /* Menos padding para hacerlo más pequeño */
