@@ -176,7 +176,7 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   .beta-sello {
     padding: 3px 10px; /* Menos padding para hacerlo más pequeño */
     font-size: 1em; /* Tamaño de texto más pequeño */
