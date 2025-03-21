@@ -196,10 +196,10 @@ body {
   }
 
   .productos-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas en móviles */
+    grid-template-columns: repeat(1, 1fr); /* 2 columnas en móviles */
   }
   .price-list-btn {
-    width: 100%; /* Ocupa todo el ancho en teléfonos */
+    width: 80%; /* Ocupa todo el ancho en teléfonos */
     font-size: 14px; /* Reduce un poco el tamaño de fuente */
     padding: 12px; /* Ajusta el padding */
     max-width: 90%; /* Evita que sea demasiado grande */
