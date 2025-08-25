@@ -11,7 +11,6 @@ const App = () => {
   // Lista de usuarios con sus credenciales
   const users = {
     3816: "013816",
-    3854: "013854",
     3890: "013890",
     3853: "013853",
     3807: "013807",
