@@ -75,7 +75,7 @@ const Catalogo = () => {
       <div className="franja-superior">
         <div className="beta-sello">
           <span className="beta-v1">BETA V1</span>
-          <span className="desarrollo">Inventory updated 12/20</span>
+          <span className="desarrollo">Inventory updated 12/22</span>
         </div>
 
         <div className="categoria-filtro-wrapper">
